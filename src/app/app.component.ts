@@ -3,7 +3,7 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatTable } from '@angular/material/table';
-
+// https://nestdanchia.github.io/add/
 import * as _moment from 'moment';
 const moment = _moment;
 class Articulo {
@@ -45,11 +45,13 @@ export class AppComponent {
     this.dataSource.sort = this.sort;
   }
   agregar() {
+    let index=this.datos.length;
+    console.log(index)
     let nuevaTarea = new Articulo(this.articuloselect.taskName,
       this.articuloselect.taskState, this.articuloselect.startDate,
       this.articuloselect.asOfDate, this.articuloselect.updatedAt)
     console.log(nuevaTarea);
-    this.datos.splice(0, 0, nuevaTarea);
+    this.datos.splice(index, 0, nuevaTarea);
     this.dataSource = new MatTableDataSource<Articulo>(this.datos);
     this.tabla1.renderRows();
     this.articuloselect = new Articulo("", "", new Date("2015-03-25"), new Date(), new Date());
